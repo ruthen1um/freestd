@@ -1,8 +1,9 @@
-#include "freestd/kernel/syscalls.hpp"
+#include <freestd/kernel/syscalls.hpp>
 
 constexpr const unsigned int STDOUT_FD = 1;
+constexpr const int EXIT_SUCCESS = 0;
 
-extern "C" int main() noexcept {
+extern "C" [[noreturn]] void _start() noexcept {
     freestd::kernel::write(STDOUT_FD, "Hello, world\n", 13);
-    return 0;
+    freestd::kernel::exit(EXIT_SUCCESS);
 }

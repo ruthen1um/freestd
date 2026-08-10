@@ -29,17 +29,19 @@ target_compile_options(${PROJECT_NAME}
         -Wextra
         -Wpedantic
         -Wconversion
+        -ffreestanding
+)
+
+target_link_options(${PROJECT_NAME}
+    PRIVATE
+        -nostdlib
 )
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC
-        include)
-
-# target_include_directories(${PROJECT_NAME}
-#     PUBLIC
-#         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-#         $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>
-# )
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>
+)
 
 include(GNUInstallDirs)
 

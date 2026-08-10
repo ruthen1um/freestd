@@ -1,6 +1,6 @@
 project(
     hello_world
-    LANGUAGES CXX ASM
+    LANGUAGES CXX
 )
 
 add_executable(${PROJECT_NAME})
@@ -19,11 +19,6 @@ target_compile_options(${PROJECT_NAME}
         -Wpedantic
         -Wconversion
         -ffreestanding
-        -fno-rtti
-        -fno-exceptions
-        -fno-asynchronous-unwind-tables
-        -fno-unwind-tables
-        -fno-stack-protector
 )
 
 target_link_options(${PROJECT_NAME}
