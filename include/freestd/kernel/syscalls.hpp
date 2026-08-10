@@ -24,7 +24,7 @@ namespace freestd::kernel {
     inline long close(unsigned int fd) noexcept {
         return __freestd_asm_syscall_close(fd);
     }
-    [[noreturn]] static inline long exit(int error_code) noexcept {
+    [[noreturn]] inline long exit(int error_code) noexcept {
         __freestd_asm_syscall_exit(error_code);
     }
 #endif
