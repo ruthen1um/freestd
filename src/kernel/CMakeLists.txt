@@ -1,3 +1,1 @@
-target_sources(${PROJECT_NAME}
-    PRIVATE
-        syscalls.s)
+add_subdirectory(linux)
