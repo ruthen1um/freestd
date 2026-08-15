@@ -1,7 +1,7 @@
 #ifndef FREESTD_CORE_TYPES_HPP
 #define FREESTD_CORE_TYPES_HPP
 
-#include "freestd/core/platform.hpp"
+#include <freestd/core/platform.hpp>
 
 namespace freestd::core {
 #if defined(FREESTD_ARCH_X86_64) && defined(FREESTD_OS_LINUX)
