@@ -29,7 +29,13 @@ target_compile_options(${PROJECT_NAME}
         -Wextra
         -Wpedantic
         -Wconversion
-        -ffreestanding
+)
+
+target_compile_options(${PROJECT_NAME}
+    PRIVATE
+        $<$<COMPILE_LANGUAGE:CXX>:
+            -ffreestanding
+        >
 )
 
 target_link_options(${PROJECT_NAME}

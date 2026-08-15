@@ -1,6 +1,6 @@
 project(
     hello_world
-    LANGUAGES CXX
+    LANGUAGES CXX ASM
 )
 
 add_executable(${PROJECT_NAME})
@@ -18,14 +18,20 @@ target_compile_options(${PROJECT_NAME}
         -Wextra
         -Wpedantic
         -Wconversion
-        -ffreestanding
-        -fno-stack-protector
+)
+
+target_compile_options(${PROJECT_NAME}
+    PRIVATE
+        $<$<COMPILE_LANGUAGE:CXX>:
+            -ffreestanding
+            -fno-stack-protector
+        >
 )
 
 target_link_options(${PROJECT_NAME}
     PRIVATE
         -nostdlib
-        --entry _start
+        -Wl,--entry,_start
 )
 
 target_link_libraries(${PROJECT_NAME} freestd)
