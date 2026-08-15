@@ -19,6 +19,7 @@ target_compile_options(${PROJECT_NAME}
         -Wpedantic
         -Wconversion
         -ffreestanding
+        -fno-stack-protector
 )
 
 target_link_options(${PROJECT_NAME}
