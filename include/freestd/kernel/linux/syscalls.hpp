@@ -10,7 +10,8 @@
 #include <freestd/kernel/linux/types.hpp>
 
 namespace freestd::kernel::linux {
-    extern "C" ssize_t __freestd_asm_linux_syscall_read(unsigned int fd, char* buf, size_t count) noexcept;
+    extern "C" ssize_t
+    __freestd_asm_linux_syscall_read(unsigned int fd, char* buf, size_t count) noexcept;
 
     extern "C" ssize_t
     __freestd_asm_linux_syscall_write(unsigned int fd, const char* buf, size_t count) noexcept;
