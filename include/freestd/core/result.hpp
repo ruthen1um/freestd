@@ -5,11 +5,15 @@ namespace freestd::core {
     template <typename T, typename E>
     class Result {
     public:
-        constexpr explicit Result(T ok) noexcept
-            : value{ok}, state{State::Ok} {}
+        Result() = delete;
 
-        constexpr explicit Result(E err) noexcept
-            : value{err}, state{State::Err} {}
+        constexpr static Result ok(T value) noexcept {
+            return Result{Storage::ok(value), State::Ok};
+        }
+
+        constexpr static Result err(E err) noexcept {
+            return Result{Storage::err(err), State::Err};
+        }
 
         // TODO: figure out what to do with those constructors and assignment operators
         constexpr Result(const Result<T, E>& other) noexcept = delete;
@@ -18,11 +22,11 @@ namespace freestd::core {
         constexpr Result& operator=(Result<T, E>&& other) noexcept = delete;
 
         [[nodiscard]] constexpr T unwrap(this auto&& self) noexcept {
-            return self.value.ok;
+            return self.storage.value;
         }
 
         [[nodiscard]] constexpr E unwrap_err(this auto&& self) noexcept {
-            return self.value.err;
+            return self.storage.error;
         }
 
         [[nodiscard]] constexpr bool is_ok(this auto&& self) noexcept {
@@ -34,24 +38,33 @@ namespace freestd::core {
         }
 
     private:
+        union Storage {
+            T value;
+            E error;
+
+            constexpr static Storage ok(T value) noexcept {
+                auto s = Storage{};
+                s.value = value;
+                return s;
+            }
+
+            constexpr static Storage err(E err) noexcept {
+                auto s = Storage{};
+                s.error = err;
+                return s;
+            }
+        };
+
         enum class State {
             Ok,
             Err,
         };
 
-        union Value {
-            T ok;
-            E err;
-
-            constexpr Value(T value) noexcept
-                : ok{value} {}
-
-            constexpr Value(E value) noexcept
-                : err{value} {}
-        };
-
+        Storage storage;
         State state;
-        Value value;
+
+        constexpr explicit Result(Storage storage, State state) noexcept
+            : storage{storage}, state{state} {}
     };
 } // namespace freestd::core
 

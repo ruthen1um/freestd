@@ -8,12 +8,12 @@ namespace freestd::core {
         constexpr explicit Ref(T& value) noexcept
             : ptr{&value} {}
 
+        // Copying Ref does not change ownership
         constexpr Ref(const Ref<T>& other) noexcept = default;
         constexpr Ref& operator=(const Ref<T>& other) noexcept = default;
 
-        // TODO: figure out what to do with move constructor and move assignment operator
-        constexpr Ref(Ref<T>&& other) noexcept = delete;
-        constexpr Ref& operator=(Ref<T>&& other) noexcept = delete;
+        Ref(Ref<T>&& other) = delete;
+        Ref& operator=(Ref<T>&& other) = delete;
 
         [[nodiscard]] constexpr auto& get(this auto&& self) noexcept {
             return *self.ptr;
