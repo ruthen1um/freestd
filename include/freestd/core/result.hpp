@@ -7,12 +7,12 @@ namespace freestd::core {
     public:
         Result() = delete;
 
-        constexpr static Result ok(T value) noexcept {
-            return Result{Storage::ok(value), State::Ok};
+        constexpr static Result ok(T val) noexcept {
+            return Result(Storage::ok(val), State::Ok);
         }
 
         constexpr static Result err(E err) noexcept {
-            return Result{Storage::err(err), State::Err};
+            return Result(Storage::err(err), State::Err);
         }
 
         // TODO: figure out what to do with those constructors and assignment operators
@@ -42,16 +42,18 @@ namespace freestd::core {
             T value;
             E error;
 
-            constexpr static Storage ok(T value) noexcept {
-                auto s = Storage{};
-                s.value = value;
-                return s;
+            struct OkTag {};
+            struct ErrTag {};
+
+            constexpr explicit Storage(OkTag, T val) noexcept: value(val) {}
+            constexpr explicit Storage(ErrTag, E err) noexcept: error(err) {}
+
+            constexpr static Storage ok(T val) noexcept {
+                return Storage(OkTag(), val);
             }
 
             constexpr static Storage err(E err) noexcept {
-                auto s = Storage{};
-                s.error = err;
-                return s;
+                return Storage(ErrTag(), err);
             }
         };
 
@@ -64,7 +66,7 @@ namespace freestd::core {
         State state;
 
         constexpr explicit Result(Storage storage, State state) noexcept
-            : storage{storage}, state{state} {}
+            : storage(storage), state(state) {}
     };
 } // namespace freestd::core
 

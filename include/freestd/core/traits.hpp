@@ -4,37 +4,37 @@
 namespace freestd::core {
     template <typename T>
     struct IsConst {
-        constexpr static bool value = false;
+        constexpr static auto value = false;
     };
 
     template <typename T>
     struct IsConst<const T> {
-        constexpr static bool value = true;
+        constexpr static auto value = true;
     };
 
     template <typename T>
-    constexpr inline bool IsConstV = IsConst<T>::value;
+    constexpr inline auto IsConstV = IsConst<T>::value;
 
     template <typename T>
     struct IsUnsigned {
-        constexpr static bool value = T(-1) > T(0);
+        constexpr static auto value = T(-1) > T(0);
     };
 
     template <typename T>
-    constexpr inline bool IsUnsignedV = IsUnsigned<T>::value;
+    constexpr inline auto IsUnsignedV = IsUnsigned<T>::value;
 
     template <typename T, typename U>
     struct IsSame {
-        constexpr static bool value = false;
+        constexpr static auto value = false;
     };
 
     template <typename T>
     struct IsSame<T, T> {
-        constexpr static bool value = true;
+        constexpr static auto value = true;
     };
 
     template <typename T, typename U>
-    constexpr inline bool IsSameV = IsSame<T, U>::value;
+    constexpr inline auto IsSameV = IsSame<T, U>::value;
 } // namespace freestd::core
 
 #endif // FREESTD_CORE_TRAITS_HPP

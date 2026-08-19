@@ -6,7 +6,7 @@ namespace freestd::core {
     class Ref {
     public:
         constexpr explicit Ref(T& value) noexcept
-            : ptr{&value} {}
+            : ptr(&value) {}
 
         // Copying Ref does not change ownership
         constexpr Ref(const Ref<T>& other) noexcept = default;
