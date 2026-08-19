@@ -1,6 +1,7 @@
 #ifndef FREESTD_COLLECTIONS_ARRAY_HPP
 #define FREESTD_COLLECTIONS_ARRAY_HPP
 
+#include <freestd/core/concepts.hpp>
 #include <freestd/core/ref.hpp>
 #include <freestd/core/result.hpp>
 #include <freestd/core/traits.hpp>
@@ -20,7 +21,9 @@ namespace freestd::collections {
         using SizeType = Size;
         using ErrorType = ArrayError;
 
-        constexpr explicit Array() noexcept = default;
+        constexpr explicit Array() noexcept: elements{} {
+            static_assert(core::Collection<Array>);
+        }
 
         constexpr Array(const Array<T, Size, N>& other) noexcept = default;
         constexpr Array& operator=(const Array<T, Size, N>& other) noexcept = default;
