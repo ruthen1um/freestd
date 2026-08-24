@@ -1,12 +1,8 @@
-#ifndef FREESTD_COLLECTIONS_ARRAY_HPP
-#define FREESTD_COLLECTIONS_ARRAY_HPP
+export module freestd.collections:array;
 
-#include <freestd/core/concepts.hpp>
-#include <freestd/core/ref.hpp>
-#include <freestd/core/result.hpp>
-#include <freestd/core/traits.hpp>
+import freestd.core;
 
-namespace freestd::collections {
+export namespace freestd::collections {
     enum class ArrayError {
         OutOfBoundsAccess,
     };
@@ -21,7 +17,8 @@ namespace freestd::collections {
         using SizeType = Size;
         using ErrorType = ArrayError;
 
-        constexpr explicit Array() noexcept: elements{} {
+        constexpr explicit Array() noexcept
+            : elements{} {
             static_assert(core::Collection<Array>);
         }
 
@@ -58,5 +55,3 @@ namespace freestd::collections {
         T elements[N];
     };
 } // namespace freestd::collections
-
-#endif // FREESTD_COLLECTIONS_ARRAY_HPP

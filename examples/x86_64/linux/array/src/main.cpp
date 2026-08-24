@@ -1,6 +1,6 @@
-#include <freestd/collections/array.hpp>
-#include <freestd/core/types.hpp>
-#include <freestd/kernel/linux/syscalls.hpp>
+import freestd.collections;
+import freestd.core;
+import freestd.kernel.linux;
 
 constexpr const unsigned int STDOUT_FD = 1;
 constexpr const int EXIT_SUCCESS = 0;

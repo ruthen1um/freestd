@@ -1,4 +1,4 @@
-#include <freestd/kernel/linux/syscalls.hpp>
+import freestd.kernel.linux;
 
 constexpr const unsigned int STDOUT_FD = 1;
 constexpr const int EXIT_SUCCESS = 0;

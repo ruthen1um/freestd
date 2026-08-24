@@ -1,7 +1,6 @@
-#ifndef FREESTD_CORE_REF_HPP
-#define FREESTD_CORE_REF_HPP
+export module freestd.core:ref;
 
-namespace freestd::core {
+export namespace freestd::core {
     template <typename T>
     class Ref {
     public:
@@ -23,5 +22,3 @@ namespace freestd::core {
         T* const ptr;
     };
 } // namespace freestd::core
-
-#endif // FREESTD_CORE_REF_HPP

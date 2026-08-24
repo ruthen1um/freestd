@@ -1,7 +1,6 @@
-#ifndef FREESTD_CORE_RESULT_HPP
-#define FREESTD_CORE_RESULT_HPP
+export module freestd.core:result;
 
-namespace freestd::core {
+export namespace freestd::core {
     template <typename T, typename E>
     class Result {
     public:
@@ -45,8 +44,10 @@ namespace freestd::core {
             struct OkTag {};
             struct ErrTag {};
 
-            constexpr explicit Storage(OkTag, T val) noexcept: value(val) {}
-            constexpr explicit Storage(ErrTag, E err) noexcept: error(err) {}
+            constexpr explicit Storage(OkTag, T val) noexcept
+                : value(val) {}
+            constexpr explicit Storage(ErrTag, E err) noexcept
+                : error(err) {}
 
             constexpr static Storage ok(T val) noexcept {
                 return Storage(OkTag(), val);
@@ -69,5 +70,3 @@ namespace freestd::core {
             : storage(storage), state(state) {}
     };
 } // namespace freestd::core
-
-#endif // FREESTD_CORE_RESULT_HPP

@@ -1,7 +1,6 @@
-#ifndef FREESTD_CORE_TRAITS_HPP
-#define FREESTD_CORE_TRAITS_HPP
+export module freestd.core:traits;
 
-namespace freestd::core {
+export namespace freestd::core {
     template <typename T>
     struct IsConst {
         constexpr static auto value = false;
@@ -36,5 +35,3 @@ namespace freestd::core {
     template <typename T, typename U>
     constexpr inline auto IsSameV = IsSame<T, U>::value;
 } // namespace freestd::core
-
-#endif // FREESTD_CORE_TRAITS_HPP

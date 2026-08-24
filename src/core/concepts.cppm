@@ -1,9 +1,8 @@
-#ifndef FREESTD_CORE_CONCEPTS_HPP
-#define FREESTD_CORE_CONCEPTS_HPP
+export module freestd.core:concepts;
 
-#include <freestd/core/traits.hpp>
+import :traits;
 
-namespace freestd::core {
+export namespace freestd::core {
     template <typename T, typename U>
     concept Same = IsSameV<T, U>;
 
@@ -15,5 +14,3 @@ namespace freestd::core {
         { c.get_size() } noexcept -> Same<typename T::SizeType>;
     };
 } // namespace freestd::core
-
-#endif // FREESTD_CORE_CONCEPTS_HPP

@@ -8,3 +8,5 @@ PackConstructorInitializers: NextLineOnly
 PointerAlignment: Left
 AllowShortFunctionsOnASingleLine: Empty
 AlwaysBreakTemplateDeclarations: Yes
+IndentExternBlock: Indent
+IndentPPDirectives: BeforeHash

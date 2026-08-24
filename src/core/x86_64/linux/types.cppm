@@ -1,10 +1,6 @@
-#ifndef FREESTD_CORE_TYPES_HPP
-#define FREESTD_CORE_TYPES_HPP
+export module freestd.core:types;
 
-#include <freestd/core/platform.hpp>
-
-namespace freestd::core {
-#if defined(FREESTD_ARCH_X86_64) && defined(FREESTD_OS_LINUX)
+export namespace freestd::core {
     using i8 = signed char;
     using i16 = signed short;
     using i32 = signed int;
@@ -18,7 +14,4 @@ namespace freestd::core {
     using f32 = float;
     using f64 = double;
     using f128 = long double;
-#endif
 } // namespace freestd::core
-
-#endif // FREESTD_CORE_TYPES_HPP

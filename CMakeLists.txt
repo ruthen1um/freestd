@@ -43,22 +43,27 @@ target_link_options(${PROJECT_NAME}
         -nostdlib
 )
 
-target_include_directories(${PROJECT_NAME}
-    PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>
-)
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    set(FREESTD_OS_LINUX TRUE)
+endif()
+
+if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
+    set(FREESTD_ARCH_X86_64 TRUE)
+endif()
+
+if(FREESTD_OS_LINUX)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE FREESTD_OS_LINUX)
+endif()
+
+if(FREESTD_ARCH_X86_64)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE FREESTD_ARCH_X86_64)
+endif()
 
 include(GNUInstallDirs)
 
 install(TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-)
-
-install(DIRECTORY include/
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 add_subdirectory(src)

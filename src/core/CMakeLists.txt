@@ -3,11 +3,15 @@ target_sources(${PROJECT_NAME}
         FILE_SET CXX_MODULES
         BASE_DIRS ${CMAKE_SOURCE_DIR}/src
         FILES
-            linux.cppm
+            core.cppm
+            concepts.cppm
+            ref.cppm
+            result.cppm
+            traits.cppm
 )
 
 install(DIRECTORY .
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/kernel/linux
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/core
     FILES_MATCHING PATTERN "*.cppm"
 )
 
