@@ -3,7 +3,7 @@ target_sources(${PROJECT_NAME}
         FILE_SET CXX_MODULES
         BASE_DIRS ${CMAKE_SOURCE_DIR}/src
         FILES
-            freestd.cppm
+            freestd.mpp
 )
 
 add_subdirectory(containers)

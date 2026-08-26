@@ -60,7 +60,7 @@ install(TARGETS ${PROJECT_NAME}
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd
-    FILES_MATCHING PATTERN "*.cppm"
+    FILES_MATCHING PATTERN "*.mpp"
 )
 
 add_subdirectory(src)

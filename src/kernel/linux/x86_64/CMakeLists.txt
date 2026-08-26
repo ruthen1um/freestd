@@ -9,6 +9,6 @@ target_sources(${PROJECT_NAME}
         FILE_SET CXX_MODULES
         BASE_DIRS ${CMAKE_SOURCE_DIR}/src
         FILES
-            syscalls.cppm
-            types.cppm
+            syscalls.mpp
+            types.mpp
 )

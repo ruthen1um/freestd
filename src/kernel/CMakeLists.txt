@@ -3,7 +3,7 @@ target_sources(${PROJECT_NAME}
         FILE_SET CXX_MODULES
         BASE_DIRS ${CMAKE_SOURCE_DIR}/src
         FILES
-            kernel.cppm
+            kernel.mpp
 )
 
 if(FREESTD_OS_LINUX)

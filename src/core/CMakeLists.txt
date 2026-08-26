@@ -3,11 +3,11 @@ target_sources(${PROJECT_NAME}
         FILE_SET CXX_MODULES
         BASE_DIRS ${CMAKE_SOURCE_DIR}/src
         FILES
-            core.cppm
-            concepts.cppm
-            ref.cppm
-            result.cppm
-            traits.cppm
+            core.mpp
+            concepts.mpp
+            ref.mpp
+            result.mpp
+            traits.mpp
 )
 
 if(FREESTD_OS_LINUX)
