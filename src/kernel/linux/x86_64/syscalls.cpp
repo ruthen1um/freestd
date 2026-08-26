@@ -1,6 +1,6 @@
-module freestd.kernel.linux;
+module freestd.kernel;
 
-namespace freestd::kernel::linux {
+namespace freestd::kernel {
     extern "C" {
         ssize_t
         __freestd_asm_linux_x86_64_syscall_read(unsigned int fd, char* buf, size_t count) noexcept;
@@ -33,4 +33,4 @@ namespace freestd::kernel::linux {
     [[noreturn]] ssize_t exit(int error_code) noexcept {
         __freestd_asm_linux_x86_64_syscall_exit(error_code);
     }
-} // namespace freestd::kernel::linux
+} // namespace freestd::kernel
