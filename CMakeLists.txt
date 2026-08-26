@@ -51,14 +51,6 @@ if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
     set(FREESTD_ARCH_X86_64 TRUE)
 endif()
 
-if(FREESTD_OS_LINUX)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE FREESTD_OS_LINUX)
-endif()
-
-if(FREESTD_ARCH_X86_64)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE FREESTD_ARCH_X86_64)
-endif()
-
 include(GNUInstallDirs)
 
 install(TARGETS ${PROJECT_NAME}

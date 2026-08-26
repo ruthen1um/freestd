@@ -1,3 +1,3 @@
-if(FREESTD_ARCH_X86_64)
-    add_subdirectory(x86_64)
+if(FREESTD_OS_LINUX)
+    add_subdirectory(linux)
 endif()

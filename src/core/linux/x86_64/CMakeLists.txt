@@ -7,6 +7,6 @@ target_sources(${PROJECT_NAME}
 )
 
 install(DIRECTORY .
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/core/x86_64/linux
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/core/linux/x86_64
     FILES_MATCHING PATTERN "*.cppm"
 )
