@@ -6,8 +6,3 @@ target_sources(${PROJECT_NAME}
             containers.cppm
             array.cppm
 )
-
-install(DIRECTORY .
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/containers
-    FILES_MATCHING PATTERN "*.cppm"
-)

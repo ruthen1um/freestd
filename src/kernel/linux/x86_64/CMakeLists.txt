@@ -12,8 +12,3 @@ target_sources(${PROJECT_NAME}
             syscalls.cppm
             types.cppm
 )
-
-install(DIRECTORY .
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/kernel/linux/x86_64
-    FILES_MATCHING PATTERN "*.cppm"
-)

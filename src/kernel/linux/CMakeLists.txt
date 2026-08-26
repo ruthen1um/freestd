@@ -6,11 +6,6 @@ target_sources(${PROJECT_NAME}
             linux.cppm
 )
 
-install(DIRECTORY .
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/kernel/linux
-    FILES_MATCHING PATTERN "*.cppm"
-)
-
 if(FREESTD_ARCH_X86_64)
     add_subdirectory(x86_64)
 endif()
