@@ -1,8 +1,8 @@
-export module freestd.collections:array;
+export module freestd.containers:array;
 
 import freestd.core;
 
-export namespace freestd::collections {
+export namespace freestd::containers {
     enum class ArrayError {
         OutOfBoundsAccess,
     };
@@ -54,4 +54,4 @@ export namespace freestd::collections {
     private:
         T elements[N];
     };
-} // namespace freestd::collections
+} // namespace freestd::containers

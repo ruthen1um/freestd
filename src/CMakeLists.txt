@@ -1,3 +1,3 @@
-add_subdirectory(collections)
+add_subdirectory(containers)
 add_subdirectory(core)
 add_subdirectory(kernel)

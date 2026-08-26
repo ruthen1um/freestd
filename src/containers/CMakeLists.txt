@@ -3,11 +3,11 @@ target_sources(${PROJECT_NAME}
         FILE_SET CXX_MODULES
         BASE_DIRS ${CMAKE_SOURCE_DIR}/src
         FILES
-            collections.cppm
+            containers.cppm
             array.cppm
 )
 
 install(DIRECTORY .
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/collections
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freestd/containers
     FILES_MATCHING PATTERN "*.cppm"
 )

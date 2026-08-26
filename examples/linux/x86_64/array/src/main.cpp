@@ -1,4 +1,4 @@
-import freestd.collections;
+import freestd.containers;
 import freestd.core;
 import freestd.kernel;
 
@@ -8,7 +8,7 @@ constexpr const int EXIT_SUCCESS = 0;
 extern "C" int main() noexcept {
     // check program output with xxd
 
-    using namespace freestd::collections;
+    using namespace freestd::containers;
     using namespace freestd::core;
     using namespace freestd::kernel;
 
